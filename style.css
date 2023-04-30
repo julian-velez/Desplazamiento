@@ -1,0 +1,74 @@
+body,html{
+    margin: 0; /* establece el margen en 0 para ambas etiquetas.*/
+    font: bold 14px/1.4 'open sans',arial,san-serif;/*establece la fuente en 
+    negrita de tamaño 14px, con un interlineado de 1.4, usando
+     la fuente 'Open Sans' si está disponible, de lo contrario Arial 
+    o una fuente sans-serif genérica.*/
+    background: #000;/*establece el fondo en negro*/
+}
+
+ul {
+    margin: 150px auto 0;/* establece un margen de 150px arriba, centrado
+     horizontalmente (auto) 
+    y sin margen abajo*/
+    padding: 0; /* establece el relleno en 0.*/
+    list-style: none;/*quita el estilo de viñeta por defecto.*/
+    display: table;/*se muestra como una tabla..*/
+    width: 600px;/*se muestra como una tabla.*/
+    text-align: center;/*se muestra como una tabla.*/
+}
+
+li{
+    display: table-cell;/*: se muestra como una celda de tabla.*/
+    position: relative;/*establece una posición relativa para permitir el uso
+    de 
+    los pseudo-elementos ::before y ::after.*/
+    padding: 15px 0;/*establece un relleno de 15px en la parte 
+    superior e inferior y 0 a los lados.*/
+}
+
+a{
+    color: white;/*establece el color del texto en blanco*/
+    text-transform: uppercase;/*convierte todo el texto en mayúsculas*/
+    text-decoration: none;/*quita la decoración de subrayado predeterminada en el texto
+     del enlace.*/
+    letter-spacing: 0.15em;/*establece el espaciado entre caracteres en 0.15em*/
+    display: inline-block;/*se muestra como un bloque en línea*/
+    padding: 10px 5px;/*: establece un relleno de 10px en la parte superior y inferior
+     y 5px a los lados.*/
+    position: relative;/*establece una posición relativa para permitir el uso de los 
+    pseudo-elementos 
+    ::before y ::after.*/
+    transition: all .5s cubic-bezier(.77,0,.175,1);
+    /*establece una transición de animación para todas las propiedades, con una duración de 
+    0.5 segundos y una curva 
+    de aceleración personalizada.*/
+}
+
+a:hover {
+    transform: translateX(10px);/*desplaza el enlace 10px a la derecha (en el eje X) 
+    cuando se pasa el cursor sobre él.*/
+}
+
+a:after/*crea un pseudo-elemento ::after para el enlace.*/{
+    content: "";/*: establece el contenido del elemento en vacío.*/
+    display: block;/*: establece el contenido del elemento en vacío.*/
+    width: 100%;/*stablece el ancho en 100%.*/
+    height: 2px;/* establece la altura en 2px.*/
+    position: absolute;/* establece una posición absoluta en relación al elemento padre.*/
+    background: #fff;/* establece el color de fondo en blanco (#fff).*/
+    transform: scaleX(0);/*establece la escala horizontal en 0, ocultando 
+    inicialmente el pseudo-elemento.*/
+    transform-origin: right;/*establece el punto de transformación en el lado 
+    derecho del elemento.*/
+    transition: transform  .5s cubic-bezier(.77,0,.175,1);
+    /* establece una transición de animación para la transformación de escala horizontal.*/
+}
+
+a:hover:after{
+    width: 100%;
+    left: 0;
+    top: 20px;
+    transform: scaleX(1);
+    transform-origin: left;
+}
